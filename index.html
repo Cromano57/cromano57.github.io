@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Corentin Romano — AI & Big Data engineering student at CESI. Seeking a final-year internship (Feb–Jul 2027). Python, ML, Cloud, Salesforce.">
+  <meta property="og:title" content="Corentin Romano — AI & Data Engineer">
+  <meta property="og:description" content="Engineering student specialising in AI & Big Data. Open to final-year internship Feb–Jul 2027.">
+  <meta property="og:type" content="website">
+  <title>Corentin Romano — AI & Data Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ── Reset & base ──────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:           #070B14;
+      --surface:      #0F1629;
+      --surface2:     #161E30;
+      --border:       #1E2D47;
+      --text:         #E6E8F0;
+      --muted:        #7A8199;
+      --accent:       #A78BFA;
+      --accent2:      #22D3EE;
+      --accent-glow:  rgba(167, 139, 250, 0.15);
+      --font-display: 'Syne', sans-serif;
+      --font-body:    'Inter', sans-serif;
+      --font-mono:    'JetBrains Mono', monospace;
+      --radius:       12px;
+      --transition:   0.2s ease;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Accessibility ─────────────────────────────────────────── */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 1rem;
+      padding: 0.5rem 1rem;
+      background: var(--accent);
+      color: #0D0D1A;
+      font-weight: 600;
+      border-radius: 0 0 var(--radius) var(--radius);
+      z-index: 999;
+      transition: top 0.2s;
+    }
+    .skip-link:focus { top: 0; }
+
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    /* ── Typography ────────────────────────────────────────────── */
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Layout helpers ────────────────────────────────────────── */
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    section { padding: 6rem 0; }
+
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 3rem;
+      line-height: 1.2;
+    }
+
+    .divider {
+      width: 48px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      border-radius: 2px;
+      margin-bottom: 2.5rem;
+      margin-top: -2rem;
+    }
+
+    /* ── Navigation ────────────────────────────────────────────── */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2.5rem;
+      background: rgba(7, 11, 20, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+    .nav-logo span { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color var(--transition);
+    }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
+
+    /* ── Buttons ───────────────────────────────────────────────── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1.4rem;
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.875rem;
+      transition: all var(--transition);
+      cursor: pointer;
+      text-decoration: none;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #0D0D1A;
+    }
+    .btn-primary:hover { background: #C4B5FD; text-decoration: none; }
+
+    .btn-outline {
+      border: 1px solid var(--border);
+      color: var(--text);
+      background: transparent;
+    }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+
+    /* ── Tags / Pills ──────────────────────────────────────────── */
+    .tag {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 100px;
+      background: rgba(34, 211, 238, 0.07);
+      border: 1px solid rgba(34, 211, 238, 0.2);
+      color: var(--accent2);
+    }
+
+    .tag.purple {
+      background: var(--accent-glow);
+      border-color: rgba(167, 139, 250, 0.25);
+      color: var(--accent);
+    }
+
+    /* ── Hero ──────────────────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 5rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--accent-glow);
+      border: 1px solid rgba(167, 139, 250, 0.3);
+      border-radius: 100px;
+      padding: 0.35rem 0.9rem;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-tag-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #4ade80;
+      flex-shrink: 0;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.4; }
+    }
+
+    .hero-name {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 5vw, 4.5rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+    }
+    .hero-name .accent { color: var(--accent); }
+
+    .hero-role {
+      font-family: var(--font-display);
+      font-size: clamp(1rem, 2vw, 1.3rem);
+      font-weight: 600;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-code {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      line-height: 1.8;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+    .hero-code .k  { color: #F472B6; }
+    .hero-code .s  { color: #86EFAC; }
+    .hero-code .n  { color: var(--accent); }
+    .hero-code .c  { color: #64748B; }
+    .hero-code .v  { color: var(--accent2); }
+
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .hero-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    /* Hero visual panel */
+    .hero-visual {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.5rem;
+      position: relative;
+    }
+    .hero-visual::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(167, 139, 250, 0.2), transparent 60%);
+      pointer-events: none;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .stat-card {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem;
+    }
+
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .lang-row {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .lang-pill {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 100px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+    .lang-pill.native { border-color: rgba(167, 139, 250, 0.4); color: var(--accent); }
+    .lang-pill.fluent  { border-color: rgba(34, 211, 238, 0.4);  color: var(--accent2); }
+
+    /* ── Experience ────────────────────────────────────────────── */
+    #experience { background: var(--surface); }
+
+    .exp-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .exp-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1.5rem;
+      align-items: start;
+      transition: border-color var(--transition);
+    }
+    .exp-card:hover { border-color: rgba(167, 139, 250, 0.4); }
+
+    .exp-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: var(--accent-glow);
+      border: 1px solid rgba(167, 139, 250, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 0.4rem;
+      flex-wrap: wrap;
+    }
+
+    .exp-title {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+
+    .exp-company {
+      color: var(--accent);
+      font-size: 0.875rem;
+      font-weight: 500;
+      margin-bottom: 0.15rem;
+    }
+
+    .exp-date {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .exp-desc {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-top: 0.6rem;
+    }
+
+    .exp-tags {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+      margin-top: 0.75rem;
+    }
+
+    /* ── Projects ──────────────────────────────────────────────── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      transition: border-color var(--transition), transform var(--transition);
+    }
+    .project-card:hover { border-color: rgba(167, 139, 250, 0.35); transform: translateY(-2px); }
+
+    .project-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .project-icon { font-size: 1.5rem; }
+
+    .project-category {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .project-name {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .project-desc {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.55;
+      flex: 1;
+    }
+
+    .project-tags {
+      display: flex;
+      gap: 0.35rem;
+      flex-wrap: wrap;
+    }
+
+    /* ── Skills ────────────────────────────────────────────────── */
+    #skills { background: var(--surface); }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .skill-group {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+    }
+
+    .skill-group-label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .skill-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .skill-item {
+      font-size: 0.78rem;
+      color: var(--text);
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      padding: 0.2rem 0.55rem;
+      border-radius: 6px;
+    }
+
+    /* ── Education ─────────────────────────────────────────────── */
+    .edu-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .edu-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+      transition: border-color var(--transition);
+    }
+    .edu-card:hover { border-color: rgba(167, 139, 250, 0.4); }
+
+    .edu-icon { font-size: 1.75rem; flex-shrink: 0; }
+
+    .edu-school {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+    }
+
+    .edu-degree {
+      font-size: 0.875rem;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 0.2rem;
+    }
+
+    .edu-date {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .edu-note {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 0.4rem;
+    }
+
+    /* ── Contact ───────────────────────────────────────────────── */
+    #contact { background: var(--surface); }
+
+    .contact-inner {
+      text-align: center;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .contact-inner .section-title { margin-bottom: 1rem; }
+
+    .contact-inner p {
+      color: var(--muted);
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* ── Footer ────────────────────────────────────────────────── */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── Scroll reveal ─────────────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ── Responsive ────────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.25rem; }
+      .nav-links { display: none; }
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-visual { display: none; }
+      section { padding: 4rem 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header>
+    <nav aria-label="Primary navigation">
+      <div class="nav-logo" aria-label="Corentin Romano">cr<span aria-hidden="true">.</span></div>
+      <ul class="nav-links">
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ── HERO ──────────────────────────────────────── -->
+    <section id="hero" aria-label="Introduction">
+      <div class="container">
+        <div class="hero-grid">
+
+          <div>
+            <div class="hero-tag" aria-label="Currently open to internship">
+              <span class="hero-tag-dot" aria-hidden="true"></span>
+              Open to internship · Feb–Jul 2027
+            </div>
+
+            <h1 class="hero-name">
+              Corentin<br>
+              <span class="accent">Romano</span>
+            </h1>
+            <p class="hero-role">AI & Big Data Engineering Student</p>
+
+            <pre class="hero-code" aria-label="Developer profile summary"><span class="c">// who I am</span>
+<span class="k">const</span> <span class="n">corentin</span> = {
+  <span class="v">role</span>:    <span class="s">"AI &amp; Data Engineer"</span>,
+  <span class="v">school</span>:  <span class="s">"CESI Engineering School"</span>,
+  <span class="v">year</span>:    <span class="s">"Year 4 / 5"</span>,
+  <span class="v">seeking</span>: <span class="s">"Final-year internship"</span>,
+  <span class="v">toeic</span>:   <span class="n">970</span>,
+}</pre>
+
+            <div class="hero-ctas">
+              <a href="mailto:romano.corentin@gmail.com" class="btn btn-primary">
+                <span aria-hidden="true">✉</span> Contact me
+              </a>
+              <a href="https://linkedin.com/in/corentin-romano" class="btn btn-outline"
+                 target="_blank" rel="noopener noreferrer"
+                 aria-label="LinkedIn profile (opens in new tab)">LinkedIn</a>
+              <a href="#projects" class="btn btn-outline">View Projects</a>
+            </div>
+
+            <ul class="hero-meta" aria-label="Contact info">
+              <li class="hero-meta-item"><span aria-hidden="true">📍</span> Metz, France</li>
+              <li class="hero-meta-item"><span aria-hidden="true">🌐</span> Open to relocation</li>
+              <li class="hero-meta-item"><span aria-hidden="true">📞</span> +33 7 83 87 29 29</li>
+            </ul>
+          </div>
+
+          <div class="hero-visual" aria-hidden="true">
+            <div class="stat-grid">
+              <div class="stat-card">
+                <div class="stat-num">10+</div>
+                <div class="stat-label">Technical projects</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-num">2</div>
+                <div class="stat-label">Internships</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-num">970</div>
+                <div class="stat-label">TOEIC score</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-num">🇯🇵</div>
+                <div class="stat-label">Erasmus — Tokyo</div>
+              </div>
+            </div>
+            <div class="lang-row">
+              <span class="lang-pill native">🇫🇷 French — Native</span>
+              <span class="lang-pill fluent">🇬🇧 English — Fluent</span>
+              <span class="lang-pill">🇩🇪 German — Basic</span>
+              <span class="lang-pill">🇪🇸 Spanish — Basic</span>
+              <span class="lang-pill">🇯🇵 Japanese — JLPT N5</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── EXPERIENCE ─────────────────────────────────── -->
+    <section id="experience" aria-labelledby="exp-heading">
+      <div class="container">
+        <p class="section-label">Work experience</p>
+        <h2 class="section-title" id="exp-heading">Where I've worked</h2>
+        <div class="divider"></div>
+        <div class="exp-list">
+
+          <article class="exp-card reveal">
+            <div class="exp-icon" aria-hidden="true">☁️</div>
+            <div>
+              <div class="exp-header">
+                <div>
+                  <h3 class="exp-title">POC Lead — Salesforce Data Cloud</h3>
+                  <p class="exp-company">ITS4U · Metz, France</p>
+                </div>
+                <time class="exp-date" datetime="2024">2024 · 5 months</time>
+              </div>
+              <p class="exp-desc">Led a Salesforce Data Cloud proof of concept for a major client. Unified customer data through a Customer Data Platform (CDP), handled API and AI integration, gathered business requirements and delivered technical and business-facing presentations.</p>
+              <ul class="exp-tags" aria-label="Technologies used">
+                <li><span class="tag">Salesforce</span></li>
+                <li><span class="tag">Data Cloud</span></li>
+                <li><span class="tag">CDP</span></li>
+                <li><span class="tag">APIs</span></li>
+                <li><span class="tag purple">POC Lead</span></li>
+                <li><span class="tag purple">Stakeholder Mgmt</span></li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="exp-card reveal">
+            <div class="exp-icon" aria-hidden="true">🔬</div>
+            <div>
+              <div class="exp-header">
+                <div>
+                  <h3 class="exp-title">Software Developer — Scientific Visualisation Tool</h3>
+                  <p class="exp-company">CRM2 · Université de Lorraine, Villers-lès-Nancy</p>
+                </div>
+                <time class="exp-date" datetime="2025">2025 · 4 months</time>
+              </div>
+              <p class="exp-desc">Built a full-featured desktop application for 3D/2D scientific data visualisation in C++ with the Qt framework. Worked closely with researchers and physicists to translate complex scientific requirements into functional software.</p>
+              <ul class="exp-tags" aria-label="Technologies used">
+                <li><span class="tag">C++</span></li>
+                <li><span class="tag">Qt Framework</span></li>
+                <li><span class="tag">3D Visualisation</span></li>
+                <li><span class="tag purple">Research Collab</span></li>
+              </ul>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── PROJECTS ───────────────────────────────────── -->
+    <section id="projects" aria-labelledby="proj-heading">
+      <div class="container">
+        <p class="section-label">Academic &amp; Personal</p>
+        <h2 class="section-title" id="proj-heading">Projects</h2>
+        <div class="divider"></div>
+        <div class="projects-grid">
+
+          <article class="project-card reveal">
+            <div class="project-top">
+              <div class="project-icon" aria-hidden="true">📈</div>
+              <span class="project-category">AI / Big Data</span>
+            </div>
+            <h3 class="project-name">Bitcoin Price Forecasting</h3>
+            <p class="project-desc">Time-series prediction model for Bitcoin prices. Explored feature engineering, model selection and evaluation on financial data.</p>
+            <ul class="project-tags" aria-label="Technologies">
+              <li><span class="tag">Python</span></li>
+              <li><span class="tag">Scikit-learn</span></li>
+              <li><span class="tag">Pandas</span></li>
+              <li><span class="tag">Matplotlib</span></li>
+            </ul>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-top">
+              <div class="project-icon" aria-hidden="true">🧠</div>
+              <span class="project-category">AI / ML</span>
+            </div>
+            <h3 class="project-name">Diabetes Prediction &amp; Ethics</h3>
+            <p class="project-desc">Medical classification on a US dataset using single-neuron and deep learning architectures, with ethical data management and bias analysis.</p>
+            <ul class="project-tags" aria-label="Technologies">
+              <li><span class="tag">TensorFlow</span></li>
+              <li><span class="tag">Keras</span></li>
+              <li><span class="tag">Scikit-learn</span></li>
+              <li><span class="tag purple">Ethics</span></li>
+            </ul>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-top">
+              <div class="project-icon" aria-hidden="true">😊</div>
+              <span class="project-category">Affective Computing</span>
+            </div>
+            <h3 class="project-name">Facial Emotion Recognition</h3>
+            <p class="project-desc">Real-time facial emotion detection and analysis using AI prediction models. Applied computer vision techniques to classify emotional states.</p>
+            <ul class="project-tags" aria-label="Technologies">
+              <li><span class="tag">Python</span></li>
+              <li><span class="tag">Computer Vision</span></li>
+              <li><span class="tag">Deep Learning</span></li>
+            </ul>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-top">
+              <div class="project-icon" aria-hidden="true">🚚</div>
+              <span class="project-category">Operations Research</span>
+            </div>
+            <h3 class="project-name">Vehicle Routing Problem</h3>
+            <p class="project-desc">Implemented and benchmarked meta-heuristic optimisation algorithms — simulated annealing and genetic algorithms — to solve the VRP.</p>
+            <ul class="project-tags" aria-label="Technologies">
+              <li><span class="tag">Python</span></li>
+              <li><span class="tag">Genetic Algo</span></li>
+              <li><span class="tag">Simulated Annealing</span></li>
+            </ul>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-top">
+              <div class="project-icon" aria-hidden="true">🏫</div>
+              <span class="project-category">IoT / Embedded</span>
+            </div>
+            <h3 class="project-name">Smart Campus Room Management</h3>
+            <p class="project-desc">Real-time room occupancy monitoring and booking via LoRa wireless communication between sensors and a gateway, with a full-stack web interface.</p>
+            <ul class="project-tags" aria-label="Technologies">
+              <li><span class="tag">Arduino</span></li>
+              <li><span class="tag">LoRa</span></li>
+              <li><span class="tag">JavaScript</span></li>
+            </ul>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-top">
+              <div class="project-icon" aria-hidden="true">🏭</div>
+              <span class="project-category">Web / AI</span>
+            </div>
+            <h3 class="project-name">Factory ERP with AI Agent</h3>
+            <p class="project-desc">Full ERP system for a factory environment featuring an integrated AI agent for intelligent task automation and decision support.</p>
+            <ul class="project-tags" aria-label="Technologies">
+              <li><span class="tag">JavaScript</span></li>
+              <li><span class="tag">AI Agent</span></li>
+              <li><span class="tag purple">Full-stack</span></li>
+            </ul>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-top">
+              <div class="project-icon" aria-hidden="true">📦</div>
+              <span class="project-category">App Dev</span>
+            </div>
+            <h3 class="project-name">Warehouse Stock Management</h3>
+            <p class="project-desc">Object-oriented desktop application for warehouse stock management with CRUD operations and inventory reporting.</p>
+            <ul class="project-tags" aria-label="Technologies">
+              <li><span class="tag">Java</span></li>
+              <li><span class="tag purple">OOP</span></li>
+              <li><span class="tag purple">Design Patterns</span></li>
+            </ul>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-top">
+              <div class="project-icon" aria-hidden="true">🌐</div>
+              <span class="project-category">Network</span>
+            </div>
+            <h3 class="project-name">City Network Simulation</h3>
+            <p class="project-desc">Designed and configured a complete network infrastructure for a fictional city — routing, switching, VLANs and security policies.</p>
+            <ul class="project-tags" aria-label="Technologies">
+              <li><span class="tag">Cisco Packet Tracer</span></li>
+              <li><span class="tag">VLAN</span></li>
+              <li><span class="tag">Routing</span></li>
+            </ul>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-top">
+              <div class="project-icon" aria-hidden="true">🗄️</div>
+              <span class="project-category">Databases</span>
+            </div>
+            <h3 class="project-name">Optimised Database System</h3>
+            <p class="project-desc">Complete database management system built from scratch, focusing on query optimisation, indexing strategies and schema design.</p>
+            <ul class="project-tags" aria-label="Technologies">
+              <li><span class="tag">SQL</span></li>
+              <li><span class="tag purple">From Scratch</span></li>
+              <li><span class="tag purple">Optimisation</span></li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SKILLS ─────────────────────────────────────── -->
+    <section id="skills" aria-labelledby="skills-heading">
+      <div class="container">
+        <p class="section-label">Technical toolkit</p>
+        <h2 class="section-title" id="skills-heading">Skills</h2>
+        <div class="divider"></div>
+        <div class="skills-grid">
+          <div class="skill-group reveal">
+            <h3 class="skill-group-label">AI / ML</h3>
+            <ul class="skill-items" aria-label="AI and ML tools">
+              <li><span class="skill-item">Scikit-learn</span></li>
+              <li><span class="skill-item">TensorFlow</span></li>
+              <li><span class="skill-item">Keras</span></li>
+              <li><span class="skill-item">Deep Learning</span></li>
+              <li><span class="skill-item">Emotion Recognition</span></li>
+            </ul>
+          </div>
+          <div class="skill-group reveal">
+            <h3 class="skill-group-label">Big Data</h3>
+            <ul class="skill-items">
+              <li><span class="skill-item">Spark</span></li>
+              <li><span class="skill-item">Hadoop</span></li>
+              <li><span class="skill-item">Time-series</span></li>
+            </ul>
+          </div>
+          <div class="skill-group reveal">
+            <h3 class="skill-group-label">Cloud</h3>
+            <ul class="skill-items">
+              <li><span class="skill-item">AWS</span></li>
+              <li><span class="skill-item">Azure</span></li>
+            </ul>
+          </div>
+          <div class="skill-group reveal">
+            <h3 class="skill-group-label">Languages</h3>
+            <ul class="skill-items">
+              <li><span class="skill-item">Python</span></li>
+              <li><span class="skill-item">Java</span></li>
+              <li><span class="skill-item">C++</span></li>
+              <li><span class="skill-item">SQL</span></li>
+              <li><span class="skill-item">JavaScript</span></li>
+            </ul>
+          </div>
+          <div class="skill-group reveal">
+            <h3 class="skill-group-label">Web &amp; Tools</h3>
+            <ul class="skill-items">
+              <li><span class="skill-item">HTML / CSS</span></li>
+              <li><span class="skill-item">Git</span></li>
+              <li><span class="skill-item">Jupyter</span></li>
+              <li><span class="skill-item">Qt</span></li>
+            </ul>
+          </div>
+          <div class="skill-group reveal">
+            <h3 class="skill-group-label">Platforms</h3>
+            <ul class="skill-items">
+              <li><span class="skill-item">Salesforce</span></li>
+              <li><span class="skill-item">Arduino</span></li>
+              <li><span class="skill-item">Cisco Packet Tracer</span></li>
+            </ul>
+          </div>
+          <div class="skill-group reveal">
+            <h3 class="skill-group-label">Soft Skills</h3>
+            <ul class="skill-items">
+              <li><span class="skill-item">Stakeholder Mgmt</span></li>
+              <li><span class="skill-item">Requirement Gathering</span></li>
+              <li><span class="skill-item">Presentations</span></li>
+              <li><span class="skill-item">Adaptability</span></li>
+            </ul>
+          </div>
+          <div class="skill-group reveal">
+            <h3 class="skill-group-label">Spoken Languages</h3>
+            <ul class="skill-items">
+              <li><span class="skill-item">🇫🇷 French (Native)</span></li>
+              <li><span class="skill-item">🇬🇧 English (TOEIC 970)</span></li>
+              <li><span class="skill-item">🇩🇪 German (Basic)</span></li>
+              <li><span class="skill-item">🇯🇵 Japanese (N5)</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── EDUCATION ──────────────────────────────────── -->
+    <section id="education" aria-labelledby="edu-heading">
+      <div class="container">
+        <p class="section-label">Academic background</p>
+        <h2 class="section-title" id="edu-heading">Education</h2>
+        <div class="divider"></div>
+        <div class="edu-list">
+
+          <article class="edu-card reveal">
+            <div class="edu-icon" aria-hidden="true">🎓</div>
+            <div>
+              <h3 class="edu-school">CESI Engineering School</h3>
+              <p class="edu-degree">Engineering Degree — Specialisation: AI &amp; Big Data</p>
+              <time class="edu-date" datetime="2022/2027">2022 – 2027 · Year 4</time>
+              <p class="edu-note">Integrated preparatory class. 5-year programme covering software engineering, AI, data science, networking, cybersecurity and IoT.</p>
+            </div>
+          </article>
+
+          <article class="edu-card reveal">
+            <div class="edu-icon" aria-hidden="true">🗾</div>
+            <div>
+              <h3 class="edu-school">Shibaura Institute of Technology — Tokyo, Japan</h3>
+              <p class="edu-degree">Erasmus Exchange Programme</p>
+              <time class="edu-date" datetime="2025/2026">2025 – 2026 · 6 months</time>
+              <p class="edu-note">International semester in Japan studying in an Asian engineering environment while learning Japanese (JLPT N5).</p>
+            </div>
+          </article>
+
+          <article class="edu-card reveal">
+            <div class="edu-icon" aria-hidden="true">📐</div>
+            <div>
+              <h3 class="edu-school">Institut Saint Jean Baptiste de La Salle</h3>
+              <p class="edu-degree">High School — Mathematics, Physics &amp; Chemistry, IT</p>
+              <time class="edu-date" datetime="2018/2022">2018 – 2022</time>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CONTACT ────────────────────────────────────── -->
+    <section id="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="contact-inner">
+          <p class="section-label">Get in touch</p>
+          <h2 class="section-title" id="contact-heading">Let's work together</h2>
+          <p>I'm looking for a final-year internship in AI &amp; Big Data (Feb–Jul 2027). If you have an opportunity or just want to connect, feel free to reach out.</p>
+          <div class="contact-links">
+            <a href="mailto:romano.corentin@gmail.com" class="btn btn-primary">
+              <span aria-hidden="true">✉</span> romano.corentin@gmail.com
+            </a>
+            <a href="https://linkedin.com/in/corentin-romano" class="btn btn-outline"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="LinkedIn profile (opens in new tab)">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Corentin Romano · AI &amp; Big Data · CESI Engineering School · 2026</p>
+  </footer>
+
+  <script>
+    // Scroll reveal — lightweight IntersectionObserver, no library needed
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            revealObserver.unobserve(entry.target); // unobserve after reveal
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
+  </script>
+
+</body>
+</html>
