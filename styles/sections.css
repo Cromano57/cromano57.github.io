@@ -601,12 +601,19 @@
 .lang-grid { display: flex; flex-direction: column; gap: 0.7rem; }
 .lang-row {
   display: grid;
-  grid-template-columns: 1.4rem 5.5rem 1fr 5rem;
+  grid-template-columns: 1.8rem 5.5rem 1fr 5rem;
   align-items: center;
   gap: 0.65rem;
   font-size: 0.8rem;
 }
-.lang-flag { font-size: 0.9rem; }
+.lang-flag {
+  width: 22px;
+  height: 16px;
+  border-radius: 3px;
+  object-fit: cover;
+  display: block;
+  flex-shrink: 0;
+}
 .lang-name { color: var(--text); font-weight: 500; }
 .lang-track {
   height: 3px;
@@ -680,7 +687,7 @@
   .tl-item { grid-template-columns: 80px 28px 1fr; }
   .bento { grid-template-columns: 1fr; }
   .bento-cell.wide, .bento-cell.full { grid-column: span 1; }
-  .lang-row { grid-template-columns: 1.4rem 4rem 1fr 4rem; }
+  .lang-row { grid-template-columns: 1.8rem 4rem 1fr 4rem; }
   .edu-card { grid-template-columns: 1fr; }
   .edu-icon { display: none; }
 }
